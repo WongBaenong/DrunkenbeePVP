@@ -1,0 +1,43 @@
+@import "nav.css";
+@import "icons.css";
+@import "popup.css";
+@import "winplan.css";
+@import "footer.css";
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header > h1 {
+  padding-top: 25px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  min-height: 850px;
+}
+
+nav {
+  width: 20vw;
+  margin-right: 10px;
+}
+
+section {
+  width: 60vw;
+}
+
+.class-skill > div {
+  padding-top: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+ul {
+  list-style: none;
+  padding-inline-start: 20px;
+}

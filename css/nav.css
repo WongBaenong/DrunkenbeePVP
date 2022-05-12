@@ -1,0 +1,20 @@
+nav > ul {
+  position: fixed;
+}
+
+.region > span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.classes {
+  padding: 3px;
+}
+
+.class-list {
+  margin: 5px 0px 15px 0px;
+}
+
+.classes:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}

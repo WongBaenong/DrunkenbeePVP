@@ -1,0 +1,34 @@
+.rep-skill__icons {
+  display: flex;
+}
+
+.skill-icon {
+  margin-right: 5px;
+}
+
+.skill-icon > img {
+  transition: transform 0.3s;
+}
+
+.big-icon {
+  transform: scale(1.1);
+  border: 5px solid gray;
+  border-radius: 5px;
+}
+
+.enter-skill__icon {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.enter-skill__icon > img {
+  margin-right: 10px;
+}
+
+.stiff-skill__icons {
+  display: flex;
+}
+
+.hit-skill__icons {
+  display: flex;
+}
