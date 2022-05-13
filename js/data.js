@@ -425,10 +425,14 @@ const infighter = {
   ],
   enter: [0, 5],
   enterExp: [
-    `인파의 PVP 밥줄스킬. 쿨타임도 5초로 상당히 빠르며 이후 <img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_13.png" class="small-icon" />
+    `<span class="stress">인파의 PVP 밥줄스킬.</span>
+    <br>
+    쿨타임이 5초로 상당히 빠르며 이후 <img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_13.png" class="small-icon" />
     <img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_14.png" class="small-icon" /><img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_20.png" class="small-icon" /> 등
     쿨타임 남아있는 스킬로 연계도 간단하다.`,
-    `피격면역 + 피격이상 + 이동기로 전진의 일격을 피해서 안심하고 있을 때 추노가 들어올 수 있다.`,
+    `<span class="stress">피격면역 + 피격이상 + 이동기</span>
+    <br>
+    전진의 일격을 피해서 안심하고 있을 때 추노가 들어올 수 있다.`,
   ],
   immuneExp: `인파는 면역스킬이 많지는 않은 편이다. 심지어 진용출의 경우 띄우는 자세는 경직 면역도 없어 진입기가 적중하지 않은 상태에서 스탠딩으로 쓸 수는 없다.`,
   stiff: [5, 4, 10, 20],
@@ -556,7 +560,7 @@ const striker = {
   ],
   enter: [2, 12, 16, 18, 29, 35],
   enterExp: [``, ``, ``],
-  immuneExp: `스트라이커는 스킬트리에 따라 8개 중 7개를 경면으로 사용할 수도 있는 직업이라 경직 위주로 플레이하는 직업에게 유리하다.
+  immuneExp: `스트라이커는 스킬트리에 따라 8개 중 7개를 경면으로 사용할 수도 있는 직업이라 <span class="stress">경직 위주로 플레이하는 직업에게 유리</span>하다.
   <br><br>피면이상은 반대로 뇌호격 1개밖에 없어 상태이상이 많은 직업의 스킬을 잘 파악하고 있어야 한다.`,
   stiff: [2, 12, 16, 18, 23, 26, 33, 35],
   sitffExp: "",
