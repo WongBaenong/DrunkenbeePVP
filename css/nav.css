@@ -43,7 +43,7 @@ nav {
   top: 0;
   text-align: center;
   z-index: 3;
-  background-color: rgba(200, 200, 200, 0.7);
+  background-color: rgba(200, 200, 200, 0.9);
   transition: height 0.5s;
 }
 

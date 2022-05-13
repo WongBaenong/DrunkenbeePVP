@@ -94,11 +94,13 @@ ul {
   }
 
   section {
-    left: 10vw;
+    width: 80vw;
+    left: 5vw;
   }
 
   .popup {
-    left: -15px;
+    left: 0px;
+    bottom: 2px;
   }
 }
 
