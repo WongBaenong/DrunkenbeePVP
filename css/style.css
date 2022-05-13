@@ -6,13 +6,21 @@
 @import "winplan.css";
 @import "footer.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;700&display=swap");
+
 body {
   margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 100;
+}
+
+h4 {
+  font-weight: 300;
 }
 
 .back-image {
   background-image: url("https://cdn-lostark.game.onstove.com/uploadfiles/banner/c8d1f941da604f1784b2d7b9468641fc.jpg");
-  opacity: 25%;
+  opacity: 20%;
   background-size: cover;
   background-position-x: center;
   position: fixed;
@@ -87,6 +95,10 @@ ul {
 
   section {
     left: 10vw;
+  }
+
+  .popup {
+    left: -15px;
   }
 }
 

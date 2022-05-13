@@ -61,6 +61,7 @@ nav > .region-list > .region > span {
 nav .class-list {
   padding-inline-start: 0;
   font-size: 18px;
+  margin: 5px 0 5px 0px;
 }
 
 nav.role {
@@ -69,4 +70,8 @@ nav.role {
 
 ul.role {
   height: 100%;
+}
+
+nav .classes {
+  padding: 0;
 }

@@ -21,3 +21,7 @@ article::-webkit-scrollbar {
 .class-skill > div {
   padding-top: 10px;
 }
+
+.class-skill__title {
+  font-size: 24px;
+}
