@@ -1,0 +1,13 @@
+header {
+  top: 0;
+  width: 100vw;
+  height: 123px;
+  position: fixed;
+  z-index: 2;
+}
+
+header > h1 {
+  padding-top: 20px;
+  padding-bottom: 25px;
+  text-align: center;
+}

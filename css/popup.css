@@ -1,17 +1,16 @@
-.rep-skill__icon {
-  position: relative;
-}
-
 .popup {
   min-width: 280px;
   color: white;
   padding: 10px;
   border-radius: 15px;
   position: absolute;
-  left: -150px;
   background-color: gray;
   display: flex;
   flex-direction: column;
+  z-index: 2;
+
+  bottom: 30px;
+  right: 15px;
 }
 
 .popup-title {

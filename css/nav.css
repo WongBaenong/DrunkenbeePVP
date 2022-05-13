@@ -1,5 +1,15 @@
-nav > ul {
+nav {
+  width: 250px;
+  margin-right: 15px;
+}
+
+.region-list {
+  margin: 0;
   position: fixed;
+  background-color: white;
+  border-radius: 30px;
+  width: 225px;
+  padding: 20px 15px;
 }
 
 .region > span {
@@ -12,7 +22,7 @@ nav > ul {
 }
 
 .class-list {
-  margin: 5px 0px 15px 0px;
+  margin: 5px 0px 10px 0px;
 }
 
 .classes:hover {

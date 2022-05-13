@@ -1,4 +1,6 @@
 const classes = document.querySelectorAll(".classes");
+const article = document.querySelector("article");
+
 const containerRepSkill = document.querySelector(".class-skill__rep");
 const containerEnterSkill = document.querySelector(".class-skill__enter");
 const containerStiffSkill = document.querySelector(".immune-skill__stiff");
@@ -6,6 +8,7 @@ const containerHitSkill = document.querySelector(".immune-skill__hit");
 
 const CLASS_HIDDEN = "hidden";
 const CLASS_BIGICON = "big-icon";
+const CLASS_REPSKILLICON = "rep-skill__icon";
 
 const inputSKillImg = (whatClass, whichSkill, container) => {
   let listSkillImg = [];
@@ -35,9 +38,12 @@ const inputSKillImg = (whatClass, whichSkill, container) => {
     li.classList.add(`${whichSkill}-skill__icon`);
 
     const img = document.createElement("img");
-    img.src = `https://cdn-lostark.game.onstove.com/EFUI_IconAtlas/${whatClass.classcode}_Skill/${whatClass.classcode}_Skill_01_${listSkillImg[cnt]}.png`;
+    img.src = `${ICON_ADDRESS}/${whatClass.classcode}_Skill/${whatClass.classcode}_Skill_01_${listSkillImg[cnt]}.png`;
 
-    li.appendChild(img);
+    const div = document.createElement("div");
+    div.appendChild(img);
+
+    li.appendChild(div);
     ulSkill.appendChild(li);
     container.appendChild(ulSkill);
   }
@@ -45,7 +51,9 @@ const inputSKillImg = (whatClass, whichSkill, container) => {
 
 const hiddenSkillExp = () => {
   const popups = containerRepSkill.querySelectorAll(".popup");
-  const icons = containerRepSkill.querySelectorAll(".rep-skill__icon > img");
+  const icons = containerRepSkill.querySelectorAll(
+    `.${CLASS_REPSKILLICON} > div > img`
+  );
   popups.forEach((element) => {
     element.classList.add(CLASS_HIDDEN);
   });
@@ -55,7 +63,9 @@ const hiddenSkillExp = () => {
 };
 
 const inputSkillExp = (whatClass) => {
-  const repSkillIcons = containerRepSkill.querySelectorAll(".rep-skill__icon");
+  const repSkillIcons = containerRepSkill.querySelectorAll(
+    `.${CLASS_REPSKILLICON}`
+  );
 
   repSkillIcons.forEach((repSkillIcon, idx) => {
     const div = document.createElement("div");
@@ -81,14 +91,17 @@ const inputSkillExp = (whatClass) => {
 
   //addEventListener
   const repSkillImgs = containerRepSkill.querySelectorAll(
-    ".rep-skill__icon > img"
+    `.${CLASS_REPSKILLICON} > div > img`
   );
+
   repSkillImgs.forEach((repSkillImg) => {
     repSkillImg.addEventListener("click", (event) => {
-      const target = event.path[1].children[1];
+      const target = event.path[2].children[1];
+
       if (target.classList.contains(CLASS_HIDDEN)) {
         hiddenSkillExp();
       }
+
       repSkillImg.classList.toggle(CLASS_BIGICON);
       target.classList.toggle(CLASS_HIDDEN);
     });
@@ -101,7 +114,7 @@ const inputEnterExp = (whatClass) => {
 
   enterSkillIcons.forEach((enterSkillicon, idx) => {
     const span = document.createElement("span");
-    span.innerText = whatClass.enterExp[idx];
+    span.innerHTML = whatClass.enterExp[idx];
     span.classList.add("enter-skill__exp");
 
     enterSkillicon.appendChild(span);
@@ -124,14 +137,20 @@ const handleClassClick = (event) => {
 
   // 면역 설명
   const immuneExp = document.querySelector(".immune__exp");
-  immuneExp.innerText = whatClass.immuneExp;
+  immuneExp.innerHTML = whatClass.immuneExp;
 
   const winPlan = document.querySelector(".win-plan > span");
-  winPlan.innerText = whatClass.winPlan;
+  winPlan.innerHTML = whatClass.winPlan;
 
-  const adv = document.querySelector(".adv > span");
-  adv.innerText = whatClass.adv;
+  // const adv = document.querySelector(".adv > span");
+  // adv.innerHTML = whatClass.adv;
 };
+
+article.addEventListener("click", (event) => {
+  if (!event.path[2].classList.contains(`${CLASS_REPSKILLICON}`)) {
+    hiddenSkillExp();
+  }
+});
 
 classes.forEach((element) => {
   element.addEventListener("click", handleClassClick);

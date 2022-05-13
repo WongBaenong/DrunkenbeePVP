@@ -1,5 +1,8 @@
-.rep-skill__icons {
+.rep-skill__icons,
+.stiff-skill__icons,
+.hit-skill__icons {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .skill-icon {
@@ -16,19 +19,16 @@
   border-radius: 5px;
 }
 
+.small-icon {
+  width: 32px;
+  height: 32px;
+}
+
 .enter-skill__icon {
   display: flex;
   margin-bottom: 10px;
 }
 
-.enter-skill__icon > img {
+.enter-skill__icon > div > img {
   margin-right: 10px;
-}
-
-.stiff-skill__icons {
-  display: flex;
-}
-
-.hit-skill__icons {
-  display: flex;
 }
