@@ -1,14 +1,17 @@
 section {
-  width: 60vw;
+  width: 70vw;
+  height: 80vh;
   padding: 0px 20px 10px 20px;
   z-index: 1;
-  overflow: hidden;
-  height: 80vh;
+  touch-action: none;
+  position: fixed;
+  left: 260px;
 }
 
 article {
+  width: 100%;
   overflow-y: scroll;
-  height: 90%;
+  height: 70vh;
 }
 
 article::-webkit-scrollbar {

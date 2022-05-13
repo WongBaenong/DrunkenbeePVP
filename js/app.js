@@ -144,6 +144,10 @@ const handleClassClick = (event) => {
 
   // const adv = document.querySelector(".adv > span");
   // adv.innerHTML = whatClass.adv;
+
+  if (event.path[4].classList.contains(CLASS_ROLE)) {
+    toggleMobileMenu();
+  }
 };
 
 article.addEventListener("click", (event) => {

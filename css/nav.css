@@ -1,15 +1,22 @@
-nav {
-  width: 250px;
-  margin-right: 15px;
+aside {
+  position: fixed;
+  width: 200px;
+  left: 3%;
+  border-radius: 30px;
+  height: 80vh;
+  background-color: white;
 }
 
 .region-list {
   margin: 0;
-  position: fixed;
-  background-color: white;
-  border-radius: 30px;
-  width: 225px;
+  overflow-y: scroll;
+  width: 85%;
   padding: 20px 15px;
+  height: 75vh;
+}
+
+.region-list::-webkit-scrollbar {
+  display: none;
 }
 
 .region > span {
@@ -27,4 +34,39 @@ nav {
 
 .classes:hover {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  position: fixed;
+  width: 100vw;
+  height: 18px;
+  top: 0;
+  text-align: center;
+  z-index: 3;
+  background-color: rgba(200, 200, 200, 0.7);
+  transition: height 0.5s;
+}
+
+nav > .region-list {
+  padding: 0;
+  width: 100%;
+  height: 0;
+  transition: height 0.5s ease-in-out;
+}
+
+nav > .region-list > .region > span {
+  font-size: 24px;
+}
+
+nav .class-list {
+  padding-inline-start: 0;
+  font-size: 18px;
+}
+
+nav.role {
+  height: 100vh;
+}
+
+ul.role {
+  height: 100%;
 }
