@@ -142,8 +142,8 @@ const handleClassClick = (event) => {
   const winPlan = document.querySelector(".win-plan > span");
   winPlan.innerHTML = whatClass.winPlan;
 
-  // const adv = document.querySelector(".adv > span");
-  // adv.innerHTML = whatClass.adv;
+  const combo = document.querySelector(".combo > span");
+  combo.innerHTML = whatClass.combo;
 
   if (event.path[4].classList.contains(CLASS_ROLE)) {
     toggleMobileMenu();
