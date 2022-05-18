@@ -1,8 +1,12 @@
 const classCode = new Map();
 const ICON_ADDRESS = "https://cdn-lostark.game.onstove.com/EFUI_IconAtlas";
 
-const translateImg = (classname, skillnum) => {
+const transImg = (classname, skillnum) => {
   return `<img src="${ICON_ADDRESS}/${classname}_Skill/${classname}_Skill_01_${skillnum}.png" class="small-icon"/>`;
+};
+
+const transStress = (target) => {
+  return `<span class="stress">${target}</span>`;
 };
 
 const berserker = {
@@ -80,10 +84,10 @@ const berserker = {
   ],
   enter: [21, 5, 13],
   enterExp: [
-    `버서커를 상대할 때 제일 조심해야할 진입기이며 피격 시 강경직 후 마운틴(${translateImg(
+    `버서커를 상대할 때 제일 조심해야할 진입기이며 피격 시 강경직 후 마운틴(${transImg(
       "BK",
       16
-    )}) ▶ 피니쉬(${translateImg("BK", 14)}) 등 죽창 콤보에 당할 수 있다. 
+    )}) ▶ 피니쉬(${transImg("BK", 14)}) 등 죽창 콤보에 당할 수 있다. 
     돌진 시 버서커 좌표가 생각보다 앞에 있어 앞에서 카운터를 치려면 경직 면역스킬이 필수.`,
     "2회 사용 트포를 찍을 경우 18미터 거리에서도 돌진가능한 진입기지만(1회 당 9미터) 1회 사용 후 2회까지 약간의 시간이 있어 충분히 거리를 유지한다면 경직 면역 스킬로 카운터칠 수 있다.",
     "주로 진입보다는 콤보 사용 후 스킬 쿨타임을 벌기 위한 도주기로 사용하지만 내 스킬 상황에 따라 추노기로도 사용할 수 있으니 주의.",
@@ -96,7 +100,7 @@ const berserker = {
   hitExp: "",
   winPlan: `버서커를 상대할 때 중요한 점은 섣불리 들어가지 않는 것이다. 버서커의 스킬 구조상 선공보다는 받아치는 것이 좋기 때문이다.
   <br><br>
-  윈드 블레이드(${translateImg("BK", 21)}), 숄더 차지(${translateImg(
+  윈드 블레이드(${transImg("BK", 21)}), 숄더 차지(${transImg(
     "BK",
     5
   )}) 등의 돌진기를
@@ -427,13 +431,13 @@ const infighter = {
   ],
   enter: [0, 5],
   enterExp: [
-    `<span class="stress">인파의 PVP 밥줄스킬.</span>
+    `${transStress("인파의 PVP 밥줄 스킬")}
     <br>
-    쿨타임이 5초로 상당히 빠르며 이후 ${translateImg("IF", 13)}${translateImg(
+    쿨타임이 5초로 상당히 빠르며 이후 ${transImg("IF", 13)}${transImg(
       "IF",
       14
-    )}${translateImg("IF", 20)} 등 쿨타임 남아있는 스킬로 연계도 간단하다.`,
-    `<span class="stress">피격면역 + 피격이상 + 이동기</span>
+    )}${transImg("IF", 20)} 등 쿨타임 남아있는 스킬로 연계도 간단하다.`,
+    `${transStress("피격면역 + 피격이상 + 이동기")}
     <br>
     전진의 일격을 피해서 안심하고 있을 때 추노가 들어올 수 있다.`,
   ],
@@ -442,40 +446,44 @@ const infighter = {
   sitffExp: "",
   hit: [5, 4, 10],
   hitExp: "",
-  winPlan: `쿨타임 5초의 전진의 일격(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_0.png" class="small-icon" />)을 가장 주의해야 한다.
+  winPlan: `쿨타임 5초의 전진의 일격(${transImg("IF", 0)})을 가장 주의해야 한다.
   <br><br>
-  상당히 사거리가 길고 경직 시간이 길기 때문에 피격 시 이후 순타(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_13.png" class="small-icon" />) ▶ 
-  진용출(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_20.png" class="small-icon" />) ▶ 맹호격(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_14.png" class="small-icon" />) ▶ 
-  죽선(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_10.png" class="small-icon" />)콤보를 맞고 반피 가까이 삭제당할 수 있다.
+  상당히 사거리가 길고 경직 시간이 길기 때문에 피격 시 이후 순타(${transImg(
+    "IF",
+    13
+  )}) ▶ 진용출(${transImg("IF", 20)}) ▶ 맹호격(${transImg("IF", 13)}) ▶ 
+  죽선(${transImg("IF", 10)})콤보를 맞고 반피 가까이 삭제당할 수 있다.
   <br><br>
   경직 면역스킬이 거의 없기 때문에 전진의 일격 거리조절만 잘해주면 상대하기 수월한 편.
-  다만 전진의 일격(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_0.png" class="small-icon" />) ▶ 순타(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_13.png" class="small-icon" />)
-  혹은 용강(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_5.png" class="small-icon" />) ▶ 전진(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_0.png" class="small-icon" />)처럼
+  다만 전진의 일격(${transImg("IF", 0)}) ▶ 순타(${transImg(
+    "IF",
+    13
+  )}) 혹은 용강(${transImg("IF", 5)}) ▶ 전진(${transImg("IF", 0)})처럼
   타이밍을 바꿔서 진입할 수 있으니 해당사항 유의할 것.
   <br><br>
-  각성기는 1각, 2각 취향이나 작성자가 2각(<img src="${ICON_ADDRESS}/IF_Skill/IF_Skill_01_23.png" class="small-icon" />) 취향이라 2각으로 넣었음`,
-  combo: `<span class="stress">1. 기본 콤보</span>
+  각성기는 1각, 2각 취향이나 작성자가 2각(${transImg(
+    "IF",
+    23
+  )}) 취향이라 2각으로 넣었음`,
+  combo: `${transStress("1. 기본 콤보")}
   <br><br>
-  ${translateImg("IF", 0)} ▶ ${translateImg("IF", 12)} ▶ ${translateImg(
+  ${transImg("IF", 0)} ▶ ${transImg("IF", 12)} ▶ ${transImg(
     "IF",
     13
-  )} ▶ ${translateImg("IF", 20)}
+  )} ▶ ${transImg("IF", 20)}
   <br>
-  스킬을 조금만 늦게 눌러도 일망 경직 후에 스페를 쓸 수도 있으니 안전하게 하려면 ${translateImg(
+  스킬을 조금만 늦게 눌러도 일망 경직 후에 스페를 쓸 수도 있으니 안전하게 하려면 ${transImg(
     "IF",
     0
-  )} ▶ ${translateImg("IF", 13)} ▶ ${translateImg("IF", 20)}로
+  )} ▶ ${transImg("IF", 13)} ▶ ${transImg("IF", 20)}로
   바로 진용출로 이어가는 것도 좋다.
   <br><br>
-  <span class="stress">2. 풀 콤보</span>
+  ${transStress("2. 풀 콤보")}
   <br><br>
-  ${translateImg("IF", 0)} ▶ ${translateImg("IF", 12)} ▶ ${translateImg(
+  ${transImg("IF", 0)} ▶ ${transImg("IF", 12)} ▶ ${transImg(
     "IF",
     13
-  )} ▶ ${translateImg("IF", 20)} ▶ ${translateImg("IF", 14)} ▶ ${translateImg(
-    "IF",
-    10
-  )}
+  )} ▶ ${transImg("IF", 20)} ▶ ${transImg("IF", 14)} ▶ ${transImg("IF", 10)}
   <br>
   일망 후에 순타 기절로 저울을 초기화한 후 기절 유지시간 동안 진용출 후 맹호격으로 다시 띄워 죽선까지 맞추는 콤보<br>
   죽선까지 적중 시 반피 가까이 삭제시킬 수 있으며 바로 저울이 뜨므로 쿨관리를 위해 거리를 벌리는 것이 좋다.`,
@@ -588,23 +596,23 @@ const striker = {
   enter: [2, 12, 16, 18, 29, 35],
   enterExp: [
     `속칭 윈드밀로 불리며 슬라이딩 후 추가입력 시 한바퀴 돌며 에어본시킨다. 카운터 칠 스킬이 전부 쿨타임인 경우가 아니라면 해당 스킬로 에어본되는 경우는 별로 없으며 
-    주로 거리를 좁혀 다른 진입기(${translateImg("BM", 16)} ${translateImg(
+    주로 거리를 좁혀 다른 진입기(${transImg("BM", 16)} ${transImg(
       "BM",
       18
     )})를 사용할 때 쓴다.`,
     `16:9 모니터 기준 상대가 21:9 모니터를 사용한다면 화면 밖에서 날아와 반응하기 힘들어지는 스킬. 피격 시 트포에 따라 에어본 혹은 동결이 된다. 스커는 상태이상 스킬이 거의 없기 때문에
     주로 동결을 사용하며 소리를 듣고도 화조 사용 유무를 알 수 있기 때문에 스페로 면역을 띄워 피하거나 반격하기는 수월한 편`,
-    `돌진 후 한바퀴 돌아 띄우는 모션이지만 돌진을 맞는 순간 에어본이어서 판정이 좋은 편이다. 주로 잠룡(${translateImg(
+    `돌진 후 한바퀴 돌아 띄우는 모션이지만 돌진을 맞는 순간 에어본이어서 판정이 좋은 편이다. 주로 잠룡(${transImg(
       "BM",
       2
     )})으로 거리를 좁혀 스페 ▶ 월섬을 하거나
     잠룡 ▶ 월섬을 이용해 에어본을 시킨다.`,
-    `쿨타임이 짧고 반응하기도 쉽지 않아 스커들이 애용하는 견제기이다. 주로 상대가 뇌명각을 카운터치기 위해 스페나 스킬을 사용하길 유도할 때 사용하며 혹여 맞는다면 운룡각(${translateImg(
+    `쿨타임이 짧고 반응하기도 쉽지 않아 스커들이 애용하는 견제기이다. 주로 상대가 뇌명각을 카운터치기 위해 스페나 스킬을 사용하길 유도할 때 사용하며 혹여 맞는다면 운룡각(${transImg(
       "BM",
       29
     )})
     을 사용해 에어본시킨다.`,
-    `3회 체인 스킬로 1타, 2타에는 경직 면역이 없지만 3타에는 경직 면역과 피격이상(에어본)이 붙어 있다. 2타까지는 허공에 버리고 뇌명각(${translateImg(
+    `3회 체인 스킬로 1타, 2타에는 경직 면역이 없지만 3타에는 경직 면역과 피격이상(에어본)이 붙어 있다. 2타까지는 허공에 버리고 뇌명각(${transImg(
       "BM",
       18
     )})을 쓰고 3타를 쓰거나
@@ -620,33 +628,46 @@ const striker = {
   hit: [35],
   hitExp: "",
   winPlan: `스커는 상성이 명확한 캐릭터로 경직 위주 캐릭터에게는 강하고 피면과 피격이상이 많은 캐릭터에게는 상대적으로 힘든 편이다.`,
-  combo: `<span class="stress">1. 기본 공중콤보</span>
+  combo: `${transStress("1. 기본 공중콤보")}
   <br><br>
-  ${translateImg("BM", 2)} ▶ ${translateImg("BM", 16)} ▶ ${translateImg(
+  ${transImg("BM", 2)} ▶ ${transImg("BM", 16)} ▶ ${transImg(
     "BM",
     29
-  )} ▶ ${translateImg("BM", 29)} ▶ ${translateImg("BM", 29)} ▶ ${translateImg(
-    "BM",
-    28
-  )} 
-  ▶ ${translateImg("BM", 23)}
+  )} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 28)} 
+  ▶ ${transImg("BM", 23)}
   <br>
   가장 기본적인 공중 콤보로 번속을 쓰지 않는 트리인 경우 평타 2방 혹은 붕천퇴를 쓰면 된다.
   <br><br>
   <span class="stress">2. 공중콤보 응용</span>
   <br><br>
-  ${translateImg("BM", 18)} ▶ ${translateImg("BM", 29)} ▶ ${translateImg(
+  ${transImg("BM", 18)} ▶ ${transImg("BM", 29)} ▶ ${transImg(
     "BM",
     29
-  )} ▶ ${translateImg("BM", 29)} ▶ ${translateImg("BM", 28)} 
-  ▶ ${translateImg("BM", 16)}  ▶ ${translateImg("BM", 35)} ▶ ${translateImg(
+  )} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 28)} 
+  ▶ ${transImg("BM", 16)}  ▶ ${transImg("BM", 35)} ▶ ${transImg(
     "BM",
     35
-  )} ▶ ${translateImg("BM", 23)}
+  )} ▶ ${transImg("BM", 23)}
   <br>
   뇌명각 적중 시 월섬각으로 띄우지 않아도 운룡각으로 에어본시킬 수 있는 것을 응용해 버블을 채운 후 뇌호격까지 사용하는 콤보이다.<br>
   뇌호격 2타에 저울이 떠서 초풍각을 못맞출 수도 있으니 주의해야한다.
-  (사실 뇌호격은 보통 2다운용으로 쓰기 때문에 에어본 스킬이 전부 쿨타임인 경우가 아니라면 콤보 중간에는 잘 쓰지 않는다.)<br>`,
+  (사실 뇌호격은 보통 2다운용으로 쓰기 때문에 에어본 스킬이 전부 쿨타임인 경우가 아니라면 콤보 중간에는 잘 쓰지 않는다.)<br><br>
+  ${transStress("3. 광폭진 콤보")}<br><br>
+  ${transImg("BM", 2)} ▶ ${transImg("BM", 16)} ▶ ${transImg(
+    "BM",
+    29
+  )} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 33)} 
+  ▶ ${transImg("BM", 37)}<br>
+  피면기가 많은 직업(슈샤, 블래, 블레 등)을 상대할 때는 화조강림으로는 부족다고 생각하면 추가 동결로 광폭진도 채용하는 경우가 있는데 이 때 사용할 수 있는 콤보이다.
+  월섬각과 운룡각으로 콤보 사용 후 저울이 뜨기 전 광폭진 동결을 통해 각성기까지 맞출 수 있다.<br><br>
+  ${transStress("4. 광폭진 콤보(노각성기)")}<br><br>
+  ${transImg("BM", 2)} ▶ ${transImg("BM", 16)} ▶ ${transImg(
+    "BM",
+    29
+  )} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 29)} ▶ ${transImg("BM", 33)} 
+  ▶ ${transImg("BM", 28)} ▶ ${transImg("BM", 23)}<br>
+  3번 콤보에서 각성기가 없을 경우 혹은 각성기를 아껴야하는 경우 사용할 수 있는 콤보로 번속 사용 후 뇌명각이나 평타를 치다가 초풍각을 써서 이감 디버프를 오래 유지해도 된다.<br><br>
+  `,
 };
 const soulmaster = {
   classcode: "SO",
@@ -745,17 +766,133 @@ const arcana = {
 };
 const blade = {
   classcode: "BL",
-  rep: [0, 1, 8, 10, 11, 14, 16, 17, 18, 21],
-  motion: [""],
-  exp: [``],
-  enter: [0],
-  enterExp: [``, ``, ``],
-  immuneExp: ``,
-  stiff: [0],
+  rep: [0, 1, 8, 10, 11, 14, 16, 17, 12, 13, 4, 18, 21],
+  motion: [
+    "서프라이즈",
+    "어퍼",
+    "스핀",
+    "문라",
+    "악셀",
+    "보이드",
+    "블리츠",
+    "헤헌",
+    "마엘",
+    "폴스타",
+    "데센",
+    "각성기",
+    "버스트",
+  ],
+  exp: [
+    // 서프라이즈
+    `
+  쿨타임 : 10s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 경직(돌진 : 강경직), 피격이상(검풍 : 에어본)
+  `,
+    // 어퍼
+    `
+  쿨타임 : 16s
+  슈퍼아머 : 피격이상 면역
+  피격 판정 : 피격이상(에어본)
+  `,
+    // 스핀
+    `
+  쿨타임 : 12s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 경직(약경직) 
+  `,
+    // 문라
+    `
+  쿨타임 : 27s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 경직(약경직)
+  `,
+    // 악셀
+    `
+  쿨타임 : 12s
+  슈퍼아머 : 피격이상 면역
+  피격 판정 : 경직(강경직)
+  `,
+    // 보이드
+    `
+  쿨타임 : 27s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 피격이상(에어본)
+  `,
+    // 블리츠
+    `
+  쿨타임 : 24s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 피격이상(넉백, 에어본)
+  `,
+    // 헤헌
+    `
+  쿨타임 : 16s
+  슈퍼아머 : 없음
+  피격 판정 : 상태이상(기절)
+  `,
+    // 마엘
+    `
+  쿨타임 : 35s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 없음
+  `,
+    // 폴스타
+    `
+  쿨타임 : 10s
+  슈퍼아머 : 피격이상 면역
+  피격 판정 : 피격이상(에어본)
+  `,
+    // 데센
+    `
+  쿨타임 : 14s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 피격이상(에어본)
+  `,
+    // 각성기
+    `
+  슈퍼아머 : 피격이상 면역, 상태이상 면역
+  피격 판정 : 피격이상(에어본)
+  `,
+    // 버스트
+    `
+  슈퍼아머 : 피격이상 면역
+  피격 판정 : 피격이상(넉백, 에어본)
+  `,
+  ],
+  enter: [0, 8, 11],
+  enterExp: [
+    `주로 진입기보다는 상대가 추노할 때 도망치며 에어본시키는 검풍을 남겨 반격하는 용도로 많이 사용한다. 검풍에 에어본이 있기 때문에 진입기로 써봐야 경직만 되는 경우가 많다.`,
+    `경직 면역을 두른 채 접근할 수 있으며 후딜이 거의 없기 때문에 상대가 스핀커터로 접근하는 것을 보고 반격하려고 할 때 ${transImg(
+      "BL",
+      1
+    )}${transImg("BL", 0)}${transImg("BL", 16)}${transImg(
+      "BL",
+      17
+    )} 등으로 역관광 할 수 있다.`,
+    `${transStress(
+      "피격이상 면역 + 강경직 + 이동기"
+    )}<br>인파의 용강(${transImg(
+      "IF",
+      5
+    )})과 비슷한 느낌이지만 악셀이 쿨이 조금 더 짧다.`,
+  ],
+  immuneExp: `블레이드는 많은 경직 면역과 일부 피격이상 면역을 가지고 있지만 이 피격이상 면역이 붙은 스킬들이 콤보의 시작스킬이다보니 근접캐릭들에게는 지옥이다.`,
+  stiff: [0, 1, 8, 10, 11, 14, 16, 12, 13, 4, 21],
   sitffExp: ``,
-  hit: [0],
+  hit: [1, 11, 13, 21],
   hitExp: ``,
-  winPlan: ``,
+  winPlan: `대장전에서 블레이드는 다음 3가지 경우가 아니라면 이기는 것이 거의 불가능하다.(특히 근접캐릭)<br>1. 실력차가 매우 큼<br>2. 블레이드가 실수함<br>3. 일부 직업(리퍼, 건슬 등)
+  <br><br>그 이유는 다음과 같다.<br><br>
+  ${transStress(
+    "1. 콤보 1회에 최소 반피"
+  )}<br>제일 중요한 것은 블레이드에게 기회를 한 번 내주면 최소 반피가 빠지며 스킬 쿨타임 보유 상황에 따라 한방컷도 가능하다.<br><br>
+  2. 짧은 견제기 쿨타임<br>서프라이즈, 어퍼, 악셀 등 경직 및 에어본 스킬의 쿨타임이 10초 내외로 짧아 콤보 이후 쿨타임을 벌기가 수월하다.
+  또한 블레이드의 딜링기가 대략 25초의 쿨타임을 가진 것을 생각하면 콤보 이후 견제기를 한 번 사용해도 다음 딜타임엔 쿨이 알아서 돌아와있다.<br><br>
+  ${transStress("3. 어퍼 슬래쉬")}(${transImg("BL", 1)})<br>${transStress(
+    "피면 + 피격이상 + 장판"
+  )}이라는 스킬구조로 인해 피격이상이던 상태이상이던 내가 피면기를 두르고 가지 않는 한
+  무조건 카운터를 맞는다.<br>ex. 스커가 화조강림으로 들어갈 때 어퍼로 반응하면 어퍼가 판정 이기면 그냥 에어본, 혹여 화조가 선판정이 되어 동결을 시켜도 남은 장판에 에어본이 된다.`,
   combo: ``,
 };
 const ripper = {
