@@ -121,6 +121,14 @@ const inputEnterExp = (whatClass) => {
   });
 };
 
+const scrollToTop = () => {
+  let iter;
+  if (article.scrollTop != 0) {
+    article.scrollBy(0, -50);
+    iter = setTimeout("scrollToTop()", 10);
+  } else clearTimeout(iter);
+};
+
 const handleClassClick = (event) => {
   const className = document.querySelector(".class-name");
   const target = event.target.innerText;
@@ -148,6 +156,8 @@ const handleClassClick = (event) => {
   if (event.path[4].classList.contains(CLASS_ROLE)) {
     toggleMobileMenu();
   }
+
+  scrollToTop();
 };
 
 article.addEventListener("click", (event) => {
