@@ -1,15 +1,20 @@
 section {
-  width: 70vw;
+  width: calc(100vw - 300px);
   height: 80vh;
   padding: 0px 20px 10px 20px;
   z-index: 1;
   touch-action: none;
   position: fixed;
-  left: 260px;
+  left: 280px;
+}
+
+section > hr {
+  width: 90%;
+  margin-inline-start: 0;
 }
 
 article {
-  width: 100%;
+  width: 90%;
   overflow-y: scroll;
   height: 70vh;
 }
