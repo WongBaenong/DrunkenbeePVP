@@ -3,7 +3,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  background-color: gray;
   color: white;
+  background-color: gray;
   z-index: 2;
 }

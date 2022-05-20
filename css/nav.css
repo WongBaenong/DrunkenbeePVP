@@ -34,7 +34,7 @@ aside {
 }
 
 .classes:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--underbar);
 }
 
 nav {
@@ -44,25 +44,39 @@ nav {
   top: 0;
   text-align: center;
   z-index: 3;
-  background-color: rgba(200, 200, 200, 0.9);
+
+  color: bisque;
+  background-color: black;
+
   transition: height 0.5s;
+}
+
+.open-nav {
+  font-size: 12px;
+
+  background-color: var(--underbar);
 }
 
 nav > .region-list {
   padding: 0;
   width: 100%;
   height: 0;
+
   transition: height 0.5s ease-in-out;
 }
 
 nav > .region-list > .region > span {
+  color: bisque;
   font-size: 24px;
+  display: inline-block;
+  width: 100%;
+  padding-top: 15px;
 }
 
 nav .class-list {
   padding-inline-start: 0;
   font-size: 18px;
-  margin: 5px 0 5px 0px;
+  margin-bottom: 5px;
 }
 
 nav.role {
@@ -74,5 +88,6 @@ ul.role {
 }
 
 nav .classes {
+  color: white;
   padding: 0;
 }
