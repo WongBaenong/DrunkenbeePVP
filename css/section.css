@@ -1,6 +1,6 @@
 section {
   width: calc(100vw - 300px);
-  height: 80vh;
+  height: 75vh;
   padding: 0px 20px 10px 20px;
   z-index: 1;
   touch-action: none;
@@ -16,7 +16,7 @@ section > hr {
 article {
   width: 90%;
   overflow-y: scroll;
-  height: 70vh;
+  height: calc(75vh - 60px);
 }
 
 article::-webkit-scrollbar {

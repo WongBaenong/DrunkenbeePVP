@@ -2,8 +2,8 @@ aside {
   position: fixed;
   width: 200px;
   left: 3%;
-  border-radius: 30px;
-  height: 80vh;
+  border-radius: 10px;
+  height: 75vh;
   background-color: white;
 }
 
@@ -12,7 +12,7 @@ aside {
   overflow-y: scroll;
   width: 85%;
   padding: 20px 15px;
-  height: 75vh;
+  height: 69vh;
 }
 
 .region-list::-webkit-scrollbar {

@@ -76,6 +76,10 @@ const inputSkillExp = (whatClass) => {
     span.classList.add("popup-title");
     span.innerText = whatClass.motion[idx];
 
+    const close = document.createElement("span");
+    close.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    span.appendChild(close);
+
     const exp = document.createElement("span");
     exp.classList.add("popup-exp");
     exp.innerText = whatClass.exp[idx];

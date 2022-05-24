@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
 
 main {
   min-height: 850px;
-  margin-top: 130px;
+  margin-top: 18vh;
 }
 
 .hidden {
@@ -84,27 +84,13 @@ ul {
   }
 }
 
-@media screen and (orientation: portrait) {
-  .mobile-block {
-    display: none;
-  }
+.mobile-block {
+  display: none;
 }
 
-@media screen and (max-width: 500px) {
-  header {
-    height: 100px;
-  }
-
-  header > h1 {
-    font-size: 1.8em;
-  }
-
+@media screen and (max-width: 821px) {
   aside {
     left: -200px;
-  }
-
-  main {
-    margin-top: 110px;
   }
 
   section {
@@ -119,16 +105,26 @@ ul {
   section > hr {
     width: 100%;
   }
+}
+
+@media screen and (min-width: 821px) {
+  nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    height: 100px;
+  }
+
+  header > h1 {
+    font-size: 1.8em;
+  }
 
   .popup {
     left: -2px;
     right: 0px;
     bottom: 1vh;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  nav {
-    display: none;
   }
 }
