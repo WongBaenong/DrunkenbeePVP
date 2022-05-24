@@ -10,8 +10,8 @@
   flex-direction: column;
   z-index: 2;
 
-  bottom: 5px;
-  right: 0px;
+  bottom: 2vh;
+  right: 2.5vw;
 }
 
 .popup-title {

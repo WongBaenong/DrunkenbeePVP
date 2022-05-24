@@ -84,13 +84,10 @@ ul {
   }
 }
 
-/* @media screen and (min-width: 480px) {
+@media screen and (orientation: portrait) {
   .mobile-block {
     display: none;
   }
-} */
-.mobile-block {
-  display: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -125,6 +122,8 @@ ul {
 
   .popup {
     left: -2px;
+    right: 0px;
+    bottom: 1vh;
   }
 }
 

@@ -84,7 +84,8 @@ nav.role {
 }
 
 ul.role {
-  height: 95%;
+  margin-top: 3vh;
+  height: 90%;
 }
 
 nav .classes {
