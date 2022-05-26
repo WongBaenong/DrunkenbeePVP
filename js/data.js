@@ -9,6 +9,10 @@ const transStress = (target) => {
   return `<span class="stress">${target}</span>`;
 };
 
+const transCombo = (classname, combonum) => {
+  return `<img src="./img/${classname}/콤보${combonum}.gif" class="combo-img" />`;
+};
+
 const berserker = {
   classcode: "BK",
   rep: [8, 21, 14, 19, 5, 16, 13, 12, 22, 20, 11],
@@ -19,7 +23,7 @@ const berserker = {
     "소드스톰",
     "숄차",
     "마운틴",
-    "다이빙 슬래쉬",
+    "다이빙",
     "템페스트",
     "메일스톰",
     "각성기",
@@ -97,7 +101,19 @@ const berserker = {
   대신 버서커의 피면기 스킬 쿨이 제법 긴 편이기 때문에 심리전을 통해 스킬을 하나 둘 뺀다면 카운터를 당해도 큰 피해를 입지 않을 수도 있다.
   <br><br>
   단 폭주 상태가 되면 공이속 20% 증가로 인해 대부분의 판정 싸움에서 질 수밖에 없으니 좋은 타이밍이 아니라면 도망다니며 시간을 끄는 것이 좋다.`,
-  combo: ``,
+  combo: `${transStress("1.")} ${transImg("BK", 5)} ▶ ${transImg(
+    "BK",
+    16
+  )} ▶ ${transImg("BK", 8)} ▶ ${transImg("BK", 12)}
+  <br>
+  ${transCombo("BK", 1)}
+  <br><br>
+  ${transStress("2.")} ${transImg("BK", 5)} ▶ ${transImg(
+    "BK",
+    12
+  )} ▶ ${transImg("BK", 16)} ▶ ${transImg("BK", 8)} ▶ ${transImg("BK", 14)}
+  <br>
+  ${transCombo("BK", 2)}`,
 };
 
 const destroyer = {
@@ -174,9 +190,10 @@ const destroyer = {
 
 const warlord = {
   classcode: "GL",
-  rep: [8, 29, 27, 9, 1, 5, 16, 17, 3, 28, 31],
+  rep: [8, 20, 29, 27, 9, 1, 5, 16, 17, 3, 28, 31],
   motion: [
     "대어파",
+    "라이징",
     "카스",
     "스피어 샷",
     "버캐",
@@ -193,6 +210,11 @@ const warlord = {
     `    쿨타임 : 16s
     슈퍼아머 : 없음
     피격 판정 : 피격이상(에어본)
+    `,
+    //라이징
+    `    쿨타임 : 9s
+    슈퍼아머 : 없음
+    피격 판정 : 상태이상(감전)
     `, // 카스
     `    쿨타임 : 20s
     슈퍼아머 : 피격이상 면역, 상태이상 면역
@@ -244,7 +266,26 @@ const warlord = {
   hit: [9, 11, 10, 3, 13, 20],
   hitExp: "",
   winPlan: ``,
-  combo: ``,
+  combo: `${transStress("1.")} ${transImg("GL", 3)} ▶ ${transImg(
+    "GL",
+    20
+  )} ▶ ${transImg("GL", 9)}
+  <br>
+  ${transCombo("GL", 1)}
+  <br><br>
+  ${transStress("2.")} ${transImg("GL", 17)} ▶ ${transImg(
+    "GL",
+    1
+  )} ▶ ${transImg("GL", 9)}
+  <br>
+  ${transCombo("GL", 2)}
+  <br><br>
+  ${transStress("3.")} ${transImg("GL", 17)} ▶ ${transImg(
+    "GL",
+    1
+  )} ▶ ${transImg("GL", 28)}
+  <br>
+  ${transCombo("GL", 4)}`,
 };
 const holynight = {
   classcode: "HK",
@@ -863,7 +904,7 @@ const blade = {
   )} ▶ ${transImg("BL", 18)} ▶ (아츠 발동) ▶ ${transImg("BL", 10)}
   `,
 };
-const ripper = {
+const reaper = {
   classcode: "RP",
   rep: [6, 7, 9, 10, 11, 13, 14, 21, 15, 16, 17, 20],
   motion: [
@@ -989,7 +1030,13 @@ const ripper = {
     "BL",
     0
   )})처럼 예상하고 있지 않은 한 반응할 수가 없다.`,
-  combo: ``,
+  combo: `${transStress("1. 기본콤보")}
+  <br>
+  ${transImg("RP", 6)} ▶ ${transImg("RP", 7)} ▶ ${transImg(
+    "RP",
+    21
+  )} ▶ ${transImg("RP", 17)}
+  ${transCombo("RP", 1)}`,
 };
 const demonic = {
   classcode: "DM",
@@ -1053,18 +1100,161 @@ const blaster = {
 };
 const hawkeye = {
   classcode: "HE",
-  rep: [9, 16, 12, 18, 11, 10, 3, 13, 8],
-  motion: [""],
-  exp: [``],
-  enter: [0],
-  enterExp: [``, ``, ``],
+  rep: [3, 13, 14, 15, 8, 2, 17, 10, 9, 12, 16, 18, 24, 20],
+  motion: [
+    "아토믹",
+    "이베",
+    "블스",
+    "크레모아",
+    "차징샷",
+    "일제사격",
+    "집추",
+    "샤프슈터",
+    "회피사격",
+    "급베",
+    "그활",
+    "스나",
+    "각성기",
+    "폭날",
+  ],
+  exp: [
+    //아토믹
+    `  쿨타임 : 9s
+  슈퍼아머 : 없음
+  피격 판정 : 피격이상(디버프 종료 : 다운)
+  `,
+    //이베
+    `  쿨타임 : 10s
+  슈퍼아머 : 경직 면역, 상태이상 면역
+  피격 판정 : 경직(강경직)
+  `,
+    //블스
+    `  쿨타임 : 20s
+  슈퍼아머 : 없음
+  피격 판정 : 경직(투척 : 약경직, 후속타 : 강경직)
+  `,
+    //크레모아
+    `  쿨타임 : 16s
+  슈퍼아머 : 경직 면역
+  피격 판정 : 상태이상(감전)
+  `,
+    //차징샷
+    `  쿨타임 : 24s
+  슈퍼아머 : 없음
+  피격 판정 : 경직(1차징 미만 : 강경직), 피격이상(1차징 이상 : 다운)
+  `,
+    //일제사격
+    `  쿨타임 : 12s
+  슈퍼아머 : 없음
+  피격 판정 : 경직(강경직)
+  `,
+    //추적
+    `  쿨타임 : 14s
+  슈퍼아머 : 경직 면역, 피격이상 면역
+  피격 판정 : 피격이상(다운)
+  `,
+    //샤프슈터
+    `  쿨타임 : 20s
+  슈퍼아머 : 없음
+  피격 판정 : 경직(강경직)
+  `,
+    //회피사격
+    `  쿨타임 : 16s
+  슈퍼아머 : 경직 면역, 피격이상 면역
+  피격 판정 : 피격이상(다운)
+  `,
+    //급베
+    `  쿨타임 : 16s
+  슈퍼아머 : 없음
+  피격 판정 : 경직(강경직)
+  `,
+    //그활
+    `  쿨타임 : 
+  슈퍼아머 : 없음
+  피격 판정 : 상태이상(암흑, 3중첩 : 기절)
+  `,
+    //스나이프
+    `  쿨타임 : 30s
+  슈퍼아머 : 경직 면역 / 피격이상 면역
+  피격 판정 : 피격이상(다운)
+  `,
+    //각성기
+    `슈퍼아머 : 피격이상 면역, 상태이상 면역
+  피격 판정 : 경직(강경직), 피격이상(에어본, 넉백, 다운)
+  `,
+    //폭날
+    `쿨타임 : 
+  슈퍼아머 : 없음
+  피격 판정 : 경직(약경직)
+  `,
+  ],
+  enter: [13],
+  enterExp: [
+    `호크는 진입기는 이동베기만 사용한다. 이동베기 외에 이동기(${transImg(
+      "HE",
+      17
+    )}${transImg(
+      "HE",
+      9
+    )})가 있기는 하지만 적이 근접했을 때 도망용으로 사용한다.`,
+  ],
   immuneExp: ``,
-  stiff: [0],
+  stiff: [13, 15, 17, 9, 18],
   sitffExp: ``,
-  hit: [0],
+  hit: [17, 9, 18],
   hitExp: ``,
-  winPlan: ``,
-  combo: ``,
+  winPlan: `호크는 기본적으로 원거리에서 일방적인 딜교환으로 적의 진입을 유도한 후 이를 카운터치는 방식으로 운영한다.
+  <br><br>
+  ${transStress("■ 원거리 견제법")}
+  <br>
+  1. 그림자 화살(${transImg("HE", 16)}) 3중첩(기절) ▶ 스나이프(${transImg(
+    "HE",
+    18
+  )})
+  <br>
+  2. 일제사격(${transImg("HE", 2)}) 은신 ▶ 이동베기(${transImg(
+    "HE",
+    13
+  )}) ▶ 블레이드 스톰(${transImg("HE", 14)})
+  <br><br>
+  ${transStress("■ 접근하는 적 카운터치는 스킬")}
+  <br>${transImg("HE", 15)}<br>
+  감전 성공 시 아토믹(${transImg("HE", 3)}) ▶ 차징샷(${transImg(
+    "HE",
+    8
+  )}) 등 스킬 사용 후 일제사격(${transImg(
+    "HE",
+    2
+  )})으로 도망. 다만 일부 잘하는 사람은 크레모아 모션을 보고 스페로 면역을 띄운 후 반격하는 경우도 있다.
+  <br>${transImg("HE", 17)}<br>
+  피면을 달고 있어 적의 진입을 대부분 무시하고 거리를 벌릴 수 있다. 피격이상(다운)까지 있기 때문에 피면스킬로 진입하지 않으면 당할 수밖에 없다.
+  <br>${transImg("HE", 9)}<br>`,
+  combo: `${transStress("1.")} ${transImg("HE", 13)} ▶ ${transImg(
+    "HE",
+    14
+  )} ▶ ${transImg("HE", 3)}  ▶ ${transImg("HE", 8)}
+  <br>
+  ${transCombo("HE", 1)}
+  <br><br>
+  ${transStress("2.")} ${transImg("HE", 13)} ▶ ${transImg(
+    "HE",
+    14
+  )} ▶ ${transImg("HE", 18)}
+  <br>
+  블레이드 스톰 적중 시 스나이프가 확정타로 들어가는 것을 활용하는 콤보. 상대 기상기 유무에 따라 아토믹 혹은 그활을 붙여놓고 다음 이동베기 쿨타임까지 거리를 벌리면 된다.
+  <br>
+  ${transCombo("HE", 2)}
+  <br><br>
+  ${transStress("3.")} ${transImg("HE", 13)} ▶ ${transImg(
+    "HE",
+    3
+  )} ▶ 평타로 다운유도
+  <br>
+  ${transCombo("HE", 3)}
+  <br><br>
+  ${transStress("4.")} ${transImg("HE", 13)} ▶ ${transImg("HE", 24)}
+  <br>
+  ${transCombo("HE", 4)}`,
 };
 const donthide = {
   classcode: "SC",
@@ -1116,6 +1306,6 @@ classCode.set("블래스터", blaster);
 classCode.set("스카우터", donthide);
 classCode.set("건슬링어", gunslinger);
 classCode.set("데모닉", demonic);
-classCode.set("리퍼", ripper);
+classCode.set("리퍼", reaper);
 classCode.set("블레이드", blade);
 classCode.set("도화가", artist);
